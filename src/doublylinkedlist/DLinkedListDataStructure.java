@@ -37,13 +37,19 @@ public class DLinkedListDataStructure {
 				int position = scanner.nextInt();
 				doublyLinkedList.insertAtPosition(data, position);
 				break;
-			case 7:
-				doublyLinkedList.traverse();
+			case 4:
+				//TODO:
+				break;
+			case 5:
+				//TODO:
 				break;
 			case 6:
 				println("Ener the value which you want to remove");
 				data = scanner.nextInt();
 				doublyLinkedList.removeData(data);
+				break;
+			case 7:
+				doublyLinkedList.traverse();
 				break;
 			}
 		} while (true);

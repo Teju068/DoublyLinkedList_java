@@ -4,20 +4,21 @@ import java.util.Scanner;
 import static doublylinkedlist.Utils.println;
 
 public class DLinkedListDataStructure {
-	public void main(String[] args) {
+	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
 		DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
 		do {
+			println("");
 			println("****Enter your choice****");
 			println("1 for Insert at the End");
 			println("2 for Insert at the First");
 			println("3 for Insert at the Position");
 			println("4 for Remove from End");
 			println("5 for Remove from First");
-			println("6 for Remove from Position");
+			println("6 for Remove Data");
+			println("7 for Traversing");
 			int nOptions = scanner.nextInt();
-
 			switch (nOptions) {
 			case 1:
 				println("Enter the value which you want to insert");
@@ -32,8 +33,17 @@ public class DLinkedListDataStructure {
 			case 3:
 				println("Enter the value which you want to insert");
 				data = scanner.nextInt();
+				println("Enter the position at which you want to insert");
 				int position = scanner.nextInt();
 				doublyLinkedList.insertAtPosition(data, position);
+				break;
+			case 7:
+				doublyLinkedList.traverse();
+				break;
+			case 6:
+				println("Ener the value which you want to remove");
+				data = scanner.nextInt();
+				doublyLinkedList.removeData(data);
 				break;
 			}
 		} while (true);

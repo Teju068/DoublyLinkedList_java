@@ -72,7 +72,7 @@ public class DoublyLinkedList {
 			ptr = headNode;
 			while(ptr != null) {
 				nCounter++;
-				if(nCounter == position) {
+				if(nCounter == position-1) {
 					node.setNext(ptr.getNext());
 					node.setPrev(ptr);
 					ptr.setNext(node);
@@ -106,8 +106,13 @@ public class DoublyLinkedList {
 		ptr = headNode;
 		while(ptr != null) {
 			if(ptr.getData() == data) {
-				ptr.getPrev().setNext(ptr.getNext());
-				ptr.getNext().setPrev(ptr.getPrev());
+				if(ptr.getPrev() != null) {
+					ptr.getPrev().setNext(ptr.getNext());
+					ptr.getNext().setPrev(ptr.getPrev());
+				}else {
+					ptr = ptr.getNext();
+					headNode = ptr;
+				}
 			}
 			ptr = ptr.getNext();
 		}
@@ -119,10 +124,15 @@ public class DoublyLinkedList {
 	public void traverse() {
 		Node ptr;
 		ptr = headNode;
+		println("****************************************************************");
+		printrn("| ");
 		while(ptr != null) {
-			println(ptr.getData()+"");
+			printrn(ptr.getData()+" ");
 			ptr = ptr.getNext();
+			printrn("| ");
 		}
+		println("");
+		println("****************************************************************");
 	}
 	
 	/**
